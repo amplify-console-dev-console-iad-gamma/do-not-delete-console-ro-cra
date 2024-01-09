@@ -1,22 +1,16 @@
 version: 1
-backend:
-  phases:
-    build:
-      commands:
-        - nvm use 18
-        - npm ci
 frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - yarn install
     build:
       commands:
-        - npm run build
+        - yarn run build
   artifacts:
     baseDirectory: .next
     files:
-      - "'"**/*"'"
+      - '**/*'
   cache:
     paths:
       - node_modules/**/*
